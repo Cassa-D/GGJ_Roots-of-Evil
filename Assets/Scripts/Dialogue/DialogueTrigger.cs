@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class DialogueTrigger : MonoBehaviour
@@ -18,6 +19,10 @@ public class DialogueTrigger : MonoBehaviour
     private bool _alreadyTalked;
 
     private bool _playerInRange;
+    
+    [Serializable]
+    public class DialogueEvent : UnityEvent {}
+    [SerializeField] private DialogueEvent onDialogueEnd;
 
     private void Awake()
     {
@@ -37,7 +42,7 @@ public class DialogueTrigger : MonoBehaviour
             {
                 _alreadyTalked = true;
                 visualCue.SetActive(false);
-                DialogueManager.Instance.EnterDialogueMode(inkJSON, characterName);
+                DialogueManager.Instance.EnterDialogueMode(inkJSON, characterName, onDialogueEnd);
             }
         }
         else

@@ -40,8 +40,18 @@ namespace TarodevController {
 
         private void HandleSpriteFlipping() {
             if (_player.ClimbingLedge) return;
-            if (_isOnWall &_player.WallDirection != 0) _renderer.flipX = _player.WallDirection == -1;
-            else if (Mathf.Abs(_player.Input.x) > 0.1f) _renderer.flipX = _player.Input.x < 0;
+            if (_isOnWall &_player.WallDirection != 0)
+            {
+                var scale = _healthHandler.transform.localScale;
+                scale.x = _player.WallDirection;
+                _healthHandler.transform.localScale = scale;
+            }
+            else if (Mathf.Abs(_player.Input.x) > 0.1f)
+            {
+                var scale = _healthHandler.transform.localScale;
+                scale.x = _player.Input.x;
+                _healthHandler.transform.localScale = scale;
+            }
         }
 
         #region Ground Movement

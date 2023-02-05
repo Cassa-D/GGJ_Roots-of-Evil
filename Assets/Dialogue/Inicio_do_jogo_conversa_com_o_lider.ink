@@ -8,7 +8,7 @@ Como líder dos saqueadores das montanhas te considero um dos melhores saqueador
 === loop ===
 
 * [Feiticeira]
-    A bruxa Amélia espalhou uma maldição no reino, pois a população não queria deixar que ela fosse rainha. Graças a um feiticeiro que estava prestes a morrer ele conseguiu lançar uma magia transformando algumas raízes em seiva amarela que trazem cura para aqueles que estão morrendo, contudo por alguma razão.
+    A feiticeira Amélia espalhou uma maldição no reino, pois a população não queria deixar que ela fosse rainha. Graças a um feiticeiro que estava prestes a morrer ele conseguiu lançar uma magia transformando algumas raízes em seiva amarela que trazem cura para aqueles que estão morrendo, contudo por alguma razão.
     -> loop
 * [Maldição]
     As raízes das árvores se tornaram muito venenosas e você pode tomar muito dano ao toca-las por isso deve ao máximo evitar!

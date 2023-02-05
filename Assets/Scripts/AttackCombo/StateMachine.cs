@@ -63,14 +63,13 @@ public class StateMachine : MonoBehaviour
 
     }
 
-
     private void OnValidate()
     {
         if (mainStateType == null)
         {
             if (customName == "Combat")
             {
-                // mainStateType = new IdleCombatState();
+                mainStateType = new IdleCombatState();
             }
         }
     }

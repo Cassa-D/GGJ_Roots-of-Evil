@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
-using TarodevController;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using PlayerInput = TarodevController.PlayerInput;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -26,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     public PlayerInput Input => playerInput;
     
     public static DialogueManager Instance { get; private set; }
+    
+    private event Action OnDialogueEnd;
 
     private void Awake()
     {
@@ -40,6 +45,9 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         _choicesText = new TMP_Text[choices.Length];
         for (var i = 0; i < choices.Length; i++)
@@ -56,7 +64,7 @@ public class DialogueManager : MonoBehaviour
             ContinueStory();
     }
 
-    public void EnterDialogueMode(TextAsset inkJson, string characterName)
+    public void EnterDialogueMode(TextAsset inkJson, string characterName, UnityEvent customEvent = null)
     {
         if (DialogueIsPlaying) return;
         
@@ -73,6 +81,8 @@ public class DialogueManager : MonoBehaviour
             nameText.text = characterName;
         }
 
+        OnDialogueEnd += () => customEvent?.Invoke();
+
         ContinueStory();
     }
 
@@ -83,6 +93,10 @@ public class DialogueManager : MonoBehaviour
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        
+        OnDialogueEnd?.Invoke();
+        
+        OnDialogueEnd = null;
     }
     
     private void ContinueStory()
