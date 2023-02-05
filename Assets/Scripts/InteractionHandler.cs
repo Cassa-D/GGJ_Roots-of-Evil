@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TarodevController;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InteractionHandler : MonoBehaviour
     private PlayerInput _playerInput;
 
     [SerializeField] private GameObject interactIcon;
+    [SerializeField] private AudioSource pUSource;
 
     public void SetCollectable (Collectable collectable)
     {
@@ -43,6 +45,7 @@ public class InteractionHandler : MonoBehaviour
                 potionsHandler.AddCurePotions(_currentCollectable.Quantity);
                 break;
             case CollectableType.PowerUp:
+                pUSource.Play();
                 GetComponent<PlayerController>().AddPowerUp(_currentCollectable.PowerUpType);
                 break;
             default:

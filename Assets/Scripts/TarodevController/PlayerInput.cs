@@ -12,7 +12,7 @@ namespace TarodevController {
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInputActions _actions;
-        private InputAction _move, _jump, _dash, _attack, _potion, _interact, _submit;
+        private InputAction _move, _jump, _dash, _attack, _potion, _interact, _submit, _pause;
 
         private void Awake() {
             _actions = new PlayerInputActions();
@@ -23,6 +23,7 @@ namespace TarodevController {
             _potion = _actions.Player.UsePotion;
             _interact = _actions.Player.Interact;
             _submit = _actions.Player.Submit;
+            _pause = _actions.Player.Pause;
         }
 
         private void OnEnable() => _actions.Enable();
@@ -38,6 +39,7 @@ namespace TarodevController {
                 PotionDown = _potion.WasPressedThisFrame(),
                 InteractDown = _interact.WasPressedThisFrame(),
                 SubmitDown = _submit.WasPressedThisFrame(),
+                PauseDown = _pause.WasPressedThisFrame(),
                 Move = _move.ReadValue<Vector2>()
             };
         }
@@ -64,5 +66,6 @@ namespace TarodevController {
         public bool PotionDown;
         public bool InteractDown;
         public bool SubmitDown;
+        public bool PauseDown;
     }
 }

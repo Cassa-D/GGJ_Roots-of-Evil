@@ -7,17 +7,20 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     private Animator _animator;
+    private AudioSource _attackSource;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _attackSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            _animator.SetBool("Attack", true);
+            _animator.SetTrigger("Attack");
+            _animator.SetBool("IsWalking", false);
             GetComponentInChildren<EnemyController>().enabled = false;
         }
     }
@@ -26,13 +29,13 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _animator.SetBool("Attack", false);
             GetComponentInChildren<EnemyController>().enabled = true;
         }
     }
 
     public void OnAttack()
     {
+        _attackSource.Play();
         player.GetComponent<PlayerHealthHandler>().TakeDamage(1);
     }
 }

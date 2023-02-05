@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TarodevController;
 using UnityEngine;
 
 public class MeleeBaseState : State
@@ -21,12 +22,17 @@ public class MeleeBaseState : State
     // Input buffer Timer
     private float AttackPressedTimer = 0;
 
+    private PlayerInput playerInput;
+    protected AudioSource attackSource;
+
     public override void OnEnter(StateMachine _stateMachine)
     {
         base.OnEnter(_stateMachine);
         animator = GetComponent<Animator>();
         collidersDamaged = new List<Collider2D>();
         hitCollider = GetComponent<ComboCharacter>().hitbox;
+        playerInput = GetComponent<ComboCharacter>().transform.GetComponentInParent<PlayerInput>();
+        attackSource = GetComponent<ComboCharacter>().attackSource;
     }
 
     public override void OnUpdate()
@@ -40,7 +46,7 @@ public class MeleeBaseState : State
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (playerInput.FrameInput.AttackDown)
         {
             AttackPressedTimer = 2;
         }

@@ -21,6 +21,8 @@ public class PlayerHealthHandler : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private Image purpleHealthBar;
 
+    [SerializeField] private AudioSource damageSource;
+
     private void Start()
     {
         Health = maxHealth;
@@ -78,6 +80,9 @@ public class PlayerHealthHandler : MonoBehaviour
     
     private void SetInvincibilityTimer()
     {
+        // For JAM only
+        damageSource.Play();
+        
         _invincibilityTimer = InvincibilityTime;
         StartCoroutine(InvincibilityTimer());
     }
@@ -104,6 +109,6 @@ public class PlayerHealthHandler : MonoBehaviour
     
     private void Die()
     {
-        Debug.Log("You ded");
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.Lose);
     }
 }

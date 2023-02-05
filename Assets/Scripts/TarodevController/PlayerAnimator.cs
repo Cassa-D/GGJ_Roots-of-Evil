@@ -30,7 +30,7 @@ namespace TarodevController {
 
         private void Update()
         {
-            if (!_player.HasControl) return;
+            if (!_player.HasControl || Time.timeScale == 0) return;
             HandleSpriteFlipping();
             HandleGroundEffects();
             HandleWallSlideEffects();

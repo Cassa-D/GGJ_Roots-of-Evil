@@ -16,6 +16,7 @@ public class CurePotionsHandler : MonoBehaviour
     public event Action ChangePotionCount;
     
     [SerializeField] private TMP_Text curePotionsText;
+    [SerializeField] private AudioSource potionSource;
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class CurePotionsHandler : MonoBehaviour
     {
         CurePotions -= amount;
         _playerHealthHandler.Heal(10);
+        potionSource.Play();
         ChangePotionCount?.Invoke();
     }
     
