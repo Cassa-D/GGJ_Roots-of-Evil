@@ -43,6 +43,8 @@ public class CurePotionsHandler : MonoBehaviour
     
     private void UseCurePotions(int amount)
     {
+        if (_playerHealthHandler.Health == _playerHealthHandler.MaxHealth || CurePotions <= 0) return;
+        
         CurePotions -= amount;
         _playerHealthHandler.Heal(10);
         potionSource.Play();

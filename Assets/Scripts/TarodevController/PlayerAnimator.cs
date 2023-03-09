@@ -184,7 +184,7 @@ namespace TarodevController {
                 _dashRingTransform.up = dir;
                 _dashRingParticles.Play();
                 _dashParticles.Play();
-                PlaySound(_dashClip, 0.1f);
+                PlaySound(_dashClip, 0.2f);
             }
             else {
                 _dashParticles.Stop();
@@ -213,7 +213,7 @@ namespace TarodevController {
             
             _jumpTriggered = true;
             _wallJumped = wallJumped;
-            PlaySound(_jumpClip, 0.05f, Random.Range(0.98f, 1.02f));
+            PlaySound(_jumpClip, 0.2f, Random.Range(0.98f, 1.02f));
 
             _jumpParticlesParent.localRotation = Quaternion.Euler(0, 0, _player.WallDirection * 60f);
 
@@ -225,7 +225,7 @@ namespace TarodevController {
         private void OnAirJumped() {
             _jumpTriggered = true;
             _wallJumped = false;
-            PlaySound(_doubleJumpClip, 0.1f);
+            PlaySound(_doubleJumpClip, 0.2f);
             _doubleJumpParticles.Play();
         }
 
@@ -238,7 +238,7 @@ namespace TarodevController {
                 _landParticles.transform.localScale = p * Vector3.one;
                 _landParticles.Play();
                 SetColor(_landParticles);
-                PlaySound(_landClip, p * 0.1f);
+                PlaySound(_landClip, p * 0.2f);
             }
 
             if (_grounded) _moveParticles.Play();

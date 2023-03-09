@@ -108,8 +108,8 @@ TextureImporter:
       name: PisoFloresta_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 84
+        x: 1
+        y: 69
         width: 32
         height: 32
       alignment: 0
@@ -129,8 +129,8 @@ TextureImporter:
       name: PisoFloresta_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 84
+        x: 35
+        y: 69
         width: 32
         height: 32
       alignment: 0
@@ -150,8 +150,8 @@ TextureImporter:
       name: PisoFloresta_2
       rect:
         serializedVersion: 2
-        x: 84
-        y: 84
+        x: 69
+        y: 69
         width: 32
         height: 32
       alignment: 0
@@ -171,8 +171,8 @@ TextureImporter:
       name: PisoFloresta_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 48
+        x: 1
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -192,8 +192,8 @@ TextureImporter:
       name: PisoFloresta_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 35
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -213,8 +213,8 @@ TextureImporter:
       name: PisoFloresta_5
       rect:
         serializedVersion: 2
-        x: 84
-        y: 48
+        x: 69
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -234,8 +234,8 @@ TextureImporter:
       name: PisoFloresta_6
       rect:
         serializedVersion: 2
-        x: 12
-        y: 12
+        x: 1
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -255,8 +255,8 @@ TextureImporter:
       name: PisoFloresta_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 12
+        x: 35
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -276,8 +276,8 @@ TextureImporter:
       name: PisoFloresta_8
       rect:
         serializedVersion: 2
-        x: 84
-        y: 12
+        x: 69
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -289,6 +289,90 @@ TextureImporter:
       bones: []
       spriteID: 22dada21c423c8e4d951cf61831bd59b
       internalID: -1859698625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PisoFloresta_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c0a7f029c1e0345a4cd306bd1ee147
+      internalID: 964940202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PisoFloresta_10
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc41b706d521bb49b029193d9c1aedd
+      internalID: 1781600402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PisoFloresta_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7597c234c74974a849941c5c2b11e1
+      internalID: 1846365055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PisoFloresta_12
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdc06411d822b44fa724566616f26e2
+      internalID: -50748635
       vertices: []
       indices: 
       edges: []
@@ -306,12 +390,16 @@ TextureImporter:
     nameFileIdTable:
       PisoFloresta_6: -2099215185
       PisoFloresta_4: -1739021263
+      PisoFloresta_10: 1781600402
+      PisoFloresta_12: -50748635
       PisoFloresta_3: 1166659363
       PisoFloresta_0: 845684629
       PisoFloresta_8: -1859698625
       PisoFloresta_1: -696043107
       PisoFloresta_7: 372226029
+      PisoFloresta_11: 1846365055
       PisoFloresta_2: 321025017
+      PisoFloresta_9: 964940202
       PisoFloresta_5: 1459369979
   spritePackingTag: 
   pSDRemoveMatte: 0

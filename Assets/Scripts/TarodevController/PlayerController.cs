@@ -13,9 +13,9 @@ namespace TarodevController {
         #region Internal
 
         [HideInInspector] private Rigidbody2D _rb; // Hide is for serialization to avoid errors in gizmo calls
-        [SerializeField] private CapsuleCollider2D _standingCollider;
+        [SerializeField] private Collider2D _standingCollider;
         private PlayerHealthHandler _healthHandler;
-        private CapsuleCollider2D _col; // current active collider
+        private Collider2D _col; // current active collider
         private PlayerInput _input;
         private bool _cachedTriggerSetting;
 
@@ -153,20 +153,27 @@ namespace TarodevController {
         protected virtual void CheckCollisions() {
             Physics2D.queriesHitTriggers = false;
 
+            var colSize = _col switch
+            {
+                CapsuleCollider2D capsuleCol => capsuleCol.size, 
+                BoxCollider2D boxCol => boxCol.size,
+                _ => Vector2.zero
+            };
+
             // Ground and Ceiling
-            _groundHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _groundHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
-            _ceilingHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _ceilingHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
+            _groundHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, colSize, CapsuleDirection2D.Horizontal, 0, Vector2.down, _groundHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
+            _ceilingHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, colSize, CapsuleDirection2D.Horizontal, 0, Vector2.up, _ceilingHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
 
             // Walls and Ladders
             var bounds = GetWallDetectionBounds(); // won't be able to detect a wall if we're crouching mid-air
             _wallHitCount = Physics2D.OverlapBoxNonAlloc(bounds.center, bounds.size, 0, _wallHits, _stats.ClimbableLayer);
 
-            _hittingWall = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, new Vector2(_input.FrameInput.Move.x, 0), _stats.GrounderDistance, ~_stats.PlayerLayer);
+            _hittingWall = Physics2D.CapsuleCast(_col.bounds.center, colSize, CapsuleDirection2D.Horizontal, 0, new Vector2(_input.FrameInput.Move.x, 0), _stats.GrounderDistance, ~_stats.PlayerLayer);
 
             // Spike
             _spikeHitCount = Physics2D.OverlapBoxNonAlloc(bounds.center, bounds.size, 0, _spikeColliderHits, _stats.SpikeLayer);
-            if (_spikeHitCount == 0) _spikeHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _spikeRaycastHits, _stats.GrounderDistance, _stats.SpikeLayer);
-            if (_spikeHitCount == 0) _spikeHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _spikeRaycastHits, _stats.GrounderDistance, _stats.SpikeLayer);
+            if (_spikeHitCount == 0) _spikeHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, colSize, CapsuleDirection2D.Horizontal, 0, Vector2.down, _spikeRaycastHits, _stats.GrounderDistance, _stats.SpikeLayer);
+            if (_spikeHitCount == 0) _spikeHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, colSize, CapsuleDirection2D.Horizontal, 0, Vector2.up, _spikeRaycastHits, _stats.GrounderDistance, _stats.SpikeLayer);
 
             Physics2D.queriesHitTriggers = true; // Ladders are set to Trigger
             _ladderHitCount = Physics2D.OverlapBoxNonAlloc(bounds.center, bounds.size, 0, _ladderHits, _stats.LadderLayer);
@@ -223,9 +230,14 @@ namespace TarodevController {
 
         private bool IsStandingPosClear(Vector2 pos) => CheckPos(pos, _standingCollider);
 
-        protected virtual bool CheckPos(Vector2 pos, CapsuleCollider2D col) {
+        protected virtual bool CheckPos(Vector2 pos, Collider2D col) {
             Physics2D.queriesHitTriggers = false;
-            var hit = Physics2D.OverlapCapsule(pos + col.offset, col.size - _skinWidth, col.direction, 0, ~_stats.PlayerLayer);
+            var hit = col switch
+            {
+                CapsuleCollider2D capsuleCol => Physics2D.OverlapCapsule(pos + capsuleCol.offset, capsuleCol.size - _skinWidth, capsuleCol.direction, 0, ~_stats.PlayerLayer),
+                BoxCollider2D boxCol => Physics2D.OverlapBox(pos + boxCol.offset, boxCol.size - _skinWidth, 0, ~_stats.PlayerLayer),
+                _ => null
+            };
             Physics2D.queriesHitTriggers = _cachedTriggerSetting;
             return !hit;
         }

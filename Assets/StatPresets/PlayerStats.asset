@@ -49,7 +49,7 @@ MonoBehaviour:
   WallJumpPower: {x: 20, y: 20}
   WallJumpInputLossFrames: 18
   WallJumpCoyoteFrames: 5
-  WallDetectorSize: {x: 0.75, y: 1.25}
+  WallDetectorSize: {x: 1, y: 1.25}
   AllowLadders: 0
   AutoAttachToLadders: 1
   SnapToLadders: 1
@@ -61,11 +61,11 @@ MonoBehaviour:
   LadderPopForce: 20
   AllowLedges: 1
   LedgeGrabDeceleration: 4
-  LedgeGrabPoint: {x: 0.31, y: 0.75}
+  LedgeGrabPoint: {x: 0.5, y: 0.75}
   StandUpOffset: {x: 0.19, y: 0.02}
   LedgeRaycastSpacing: 0.3
-  LedgeClimbDuration: 0.5
-  AllowDash: 0
+  LedgeClimbDuration: 0.1
+  AllowDash: 1
   DashVelocity: 30
   DashDurationFrames: 5
   DashEndHorizontalMultiplier: 0.25

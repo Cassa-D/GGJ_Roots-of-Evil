@@ -28,7 +28,8 @@ public class EnemyAttack : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   
+            _attackSource.Stop();
             GetComponentInChildren<EnemyController>().enabled = true;
         }
     }

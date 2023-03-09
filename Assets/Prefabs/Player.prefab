@@ -80,7 +80,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 615224de06490bf498d2d30a3892b908, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5148,7 +5148,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 731f430509da88b4397389c558296df1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5277,7 +5277,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.26072043, y: -0.048705995}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5288,7 +5288,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5214406, y: 0.902588}
   m_EdgeRadius: 0
 --- !u!1 &3119089288419609953
 GameObject:
@@ -5334,7 +5334,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 009dac39caf7de043bae8427ffd026c0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15486,13 +15486,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3836054527376998751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9287e2eda92545dd8944b5f807d2179b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 6926182233254535446}
-  playerInput: {fileID: 3836054527727189970}
+  playerInput: {fileID: 0}
   attackSource: {fileID: 7888442467667852516}
 --- !u!114 &386652441218936325
 MonoBehaviour:
@@ -15501,7 +15501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3836054527376998751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efcd6df502f868648bac5c3c4f63a484, type: 3}
   m_Name: 
@@ -30083,12 +30083,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3836054527727189975}
   - component: {fileID: 3836054527727189972}
-  - component: {fileID: 3836054527727189970}
   - component: {fileID: 3836054527727189973}
-  - component: {fileID: 3836054527727189974}
   - component: {fileID: 1564156166}
   - component: {fileID: 1564156172}
   - component: {fileID: 1564156173}
+  - component: {fileID: 1718043899}
+  - component: {fileID: 519827181389094767}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -30125,19 +30125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 83ba18e118c21214a9abf4371498894f, type: 2}
-  _standingCollider: {fileID: 3836054527727189974}
---- !u!114 &3836054527727189970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3836054527727189976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2f4e347b70ab744a76525cac347990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _standingCollider: {fileID: 1718043899}
 --- !u!50 &3836054527727189973
 Rigidbody2D:
   serializedVersion: 4
@@ -30159,22 +30147,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &3836054527727189974
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3836054527727189976}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.75}
-  m_Size: {x: 0.6, y: 1.5}
-  m_Direction: 0
 --- !u!114 &1564156166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30187,7 +30159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c85aeabc92dc64ca45b41f15d097f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 6
   pMaxHealth: 0
   healthBar: {fileID: 0}
   purpleHealthBar: {fileID: 0}
@@ -30220,6 +30192,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactIcon: {fileID: 5044194134232911061}
   pUSource: {fileID: 709789911}
+--- !u!61 &1718043899
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836054527727189976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.68709695}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.3358061}
+  m_EdgeRadius: 0
+--- !u!114 &519827181389094767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836054527727189976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f4e347b70ab744a76525cac347990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3836054527797046537
 GameObject:
   m_ObjectHideFlags: 0
@@ -40054,7 +40064,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3cd28f6a990541945b3734731e38d039, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.85
   m_Pitch: 1.5
   Loop: 0
   Mute: 0

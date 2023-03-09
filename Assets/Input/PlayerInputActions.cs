@@ -391,6 +391,17 @@ namespace TarodevController
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0cc27139-5b58-4fef-b632-f8681dfe38e4"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8ebfc3de-8a71-4361-855c-90c6e4e33267"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
